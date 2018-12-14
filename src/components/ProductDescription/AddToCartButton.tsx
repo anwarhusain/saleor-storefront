@@ -13,7 +13,7 @@ class AddToCartButton extends React.PureComponent<
   AddToCartButtonState
 > {
   state = { animate: false };
-  animationTimeout = 800;
+  animationTimeout = 600;
   timeout;
 
   handleAnimation = (evt: React.MouseEvent<HTMLButtonElement>) => {
@@ -33,6 +33,9 @@ class AddToCartButton extends React.PureComponent<
     return (
       <Button
         {...this.props}
+        className={classNames(this.props.className, {
+          "product-description__action--fade": animate
+        })}
         onClick={this.handleAnimation}
       >
         <ReactCSSTransitionGroup
